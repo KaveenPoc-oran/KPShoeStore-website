@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - KP Shoe Store</title>
+    <meta name="description" content="Learn about KP Shoe Store's 23-year journey in Bontoc, Mountain Province - our history, mission, team, and community involvement.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        /* Remove blue focus rings from navigation */
+        .navbar .dropdown-toggle:focus {
+            box-shadow: none !important;
+        }
+        .navbar-nav .nav-link:focus {
+            box-shadow: none !important;
+        }
+        .dropdown-item:focus {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+        /* Remove focus from search input and button */
+        .form-control:focus {
+            box-shadow: none !important;
+            border-color: #1adfdf !important;
+        }
+        .btn-dark:focus {
+            box-shadow: none !important;
+        }
+        /* Custom focus styles for accessibility */
+        .nav-link:focus-visible,
+        .dropdown-item:focus-visible {
+            outline: 2px solid #1adfdf;
+            outline-offset: 2px;
+        }
+        .btn:focus-visible {
+            outline: 2px solid #1adfdf;
+            outline-offset: 2px;
+        }
+        .btn-custom {
+            background-color: #1adfdf;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #17c9c9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1adfdf;" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand text-dark fw-bold" href="index.html">
+                    <img src="Images/Logo.png" alt="KP Shoe Store Logo" width="70" height="70" class="d-inline-block align-text-middle rounded-circle">
+                    KP SHOE STORE
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="index.html"><i class="bi bi-house-door" aria-hidden="true"></i> HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="about.html"><i class="bi bi-exclamation-diamond" aria-hidden="true"></i> ABOUT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-handbag" aria-hidden="true"></i> PRODUCTS</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Athletic.html">Athletic Shoes</a></li>
+                                <li><a class="dropdown-item" href="formal.html">Formal Shoes</a></li>
+                                <li><a class="dropdown-item" href="boots.html">Boots</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="cart.html"><i class="bi bi-cart3" aria-hidden="true"></i> CART</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="contact.html"><i class="bi bi-telephone" aria-hidden="true"></i> CONTACT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> LOGIN/REGISTER</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="register.html">Register</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-dark text-white" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-dark text-white py-5" aria-labelledby="hero-heading">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 id="hero-heading" class="display-4 fw-bold mb-4">Our Story</h1>
+                        <p class="lead mb-4">Step into our journey of passion, quality, and community</p>
+                        <a href="#our-history" class="btn btn-lg text-dark fw-bold btn-custom">Explore Our History</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <figure>
+                            <img src="Images/store image.png" alt="KP Shoe Store interior showing various shoe displays" class="img-fluid rounded shadow">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="py-5 bg-light" aria-labelledby="welcome-heading">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <header>
+                            <h2 id="welcome-heading" class="border-bottom border-3 border-dark pb-2 mb-4">Welcome to KP Shoe Store</h2>
+                        </header>
+                        <p class="lead mb-4">
+                            Your trusted neighbor in the heart of Bontoc, Mountain Province. We started with a simple belief: 
+                            that the right pair of shoes can empower you to conquer your day, no matter what that looks like.
+                        </p>
+                        <p class="mb-4">
+                            Whether you're training for a personal best, stepping into an important meeting, or exploring 
+                            the beautiful trails that surround our home, we understand that your journey is unique. 
+                            That's why we carefully select footwear that blends quality, comfort, and style—from 
+                            high-performance <strong>Athletic</strong> shoes and elegant <strong>Formal</strong> wear 
+                            to the rugged durability of our <strong>Boots</strong>.
+                        </p>
+                        <dl class="d-flex flex-wrap">
+                            <div class="me-4 mb-3">
+                                <dt class="text-dark h3">23+</dt>
+                                <dd>Years of Service</dd>
+                            </div>
+                            <div class="me-4 mb-3">
+                                <dt class="text-dark h3">10K+</dt>
+                                <dd>Happy Customers</dd>
+                            </div>
+                            <div class="mb-3">
+                                <dt class="text-dark h3">500+</dt>
+                                <dd>Products Available</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <figure>
+                                    <img src="Images/1a.png" alt="Athletic shoe collection display" class="img-fluid rounded shadow">
+                                </figure>
+                            </div>
+                            <div class="col-6 mt-5">
+                                <figure>
+                                    <img src="Images/2a.png" alt="Formal shoe collection display" class="img-fluid rounded shadow">
+                                </figure>
+                            </div>
+                            <div class="col-6">
+                                <figure>
+                                    <img src="Images/f6.jpg" alt="Boots collection display" class="img-fluid rounded shadow">
+                                </figure>
+                            </div>
+                            <div class="col-6 mt-5">
+                                <figure>
+                                    <img src="Images/a6.webp" alt="Customer trying on shoes in store" class="img-fluid rounded shadow">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our History Section -->
+        <section id="our-history" class="py-5" aria-labelledby="history-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="history-heading" class="border-bottom border-3 border-dark pb-2 mb-3">Our History</h2>
+                    <p class="lead">From a small local shop to Bontoc's favorite footwear destination</p>
+                </header>
+                
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2000" class="h4 mb-0 text-dark">2000</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">The Humble Beginning</h3>
+                                        <p class="mb-0">KP Shoe Store opened its doors with a simple vision: to provide quality footwear to the Bontoc community. Our small shop quickly became known for personalized service and carefully selected products.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2005" class="h4 mb-0 text-dark">2005</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">Expanding Our Reach</h3>
+                                        <p class="mb-0">As our reputation grew, we expanded our product line to include specialized athletic shoes for the growing number of fitness enthusiasts in our community.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2010" class="h4 mb-0 text-dark">2010</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">Community Partnership</h3>
+                                        <p class="mb-0">We began sponsoring local sports teams and community events, strengthening our commitment to the people of Bontoc and Mountain Province.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2015" class="h4 mb-0 text-dark">2015</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">Store Expansion</h3>
+                                        <p class="mb-0">Due to increasing demand, we expanded our physical store to double its original size, allowing us to offer an even wider selection of footwear.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2018" class="h4 mb-0 text-dark">2018</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">Modernizing Our Approach</h3>
+                                        <p class="mb-0">We launched our online presence, allowing customers to browse and purchase our products from anywhere while maintaining our personal touch.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="card border-0 shadow-sm mb-4">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                                        <div class="rounded-circle text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; background-color: #1adfdf;">
+                                            <time datetime="2023" class="h4 mb-0 text-dark">2023</time>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h3 class="h4">Looking Ahead</h3>
+                                        <p class="mb-0">Today, we continue to evolve while staying true to our roots, focusing on sustainable practices and expanding our range of eco-friendly footwear options.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5 bg-light" aria-labelledby="stats-heading">
+            <div class="container">
+                <h2 id="stats-heading" class="visually-hidden">Our Achievements</h2>
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <article class="card text-white text-center border-0 shadow" style="background-color: #1adfdf;">
+                            <div class="card-body py-4">
+                                <h3 class="display-4 fw-bold text-dark">23+</h3>
+                                <p class="mb-0 text-dark">Years in Business</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <article class="card text-white text-center border-0 shadow" style="background-color: #1adfdf;">
+                            <div class="card-body py-4">
+                                <h3 class="display-4 fw-bold text-dark">10K+</h3>
+                                <p class="mb-0 text-dark">Happy Customers</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <article class="card text-white text-center border-0 shadow" style="background-color: #1adfdf;">
+                            <div class="card-body py-4">
+                                <h3 class="display-4 fw-bold text-dark">50+</h3>
+                                <p class="mb-0 text-dark">Brands Available</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <article class="card text-white text-center border-0 shadow" style="background-color: #1adfdf;">
+                            <div class="card-body py-4">
+                                <h3 class="display-4 fw-bold text-dark">15</h3>
+                                <p class="mb-0 text-dark">Community Events/Year</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="py-5" aria-labelledby="mission-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="mission-heading" class="border-bottom border-3 border-dark pb-2 mb-3">Our Mission & Values</h2>
+                </header>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-heart fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Passion for Footwear</h3>
+                                <p class="card-text">We're passionate about footwear and how it can transform your daily experience, performance, and confidence.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-shield-check fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Quality & Integrity</h3>
+                                <p class="card-text">We stand behind every product we sell and every promise we make, ensuring lasting quality and customer satisfaction.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-people fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Community First</h3>
+                                <p class="card-text">We believe in giving back and supporting the local community that has supported us for over two decades.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-arrow-repeat fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Sustainability</h3>
+                                <p class="card-text">We're committed to environmentally responsible practices and offering eco-friendly footwear options.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-hand-thumbs-up fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Customer Care</h3>
+                                <p class="card-text">We provide personalized service to ensure every customer finds the perfect fit for their needs and lifestyle.</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <div class="mb-3" style="color: #1adfdf;">
+                                    <i class="bi bi-lightbulb fs-1" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="card-title h5">Innovation</h3>
+                                <p class="card-text">We continuously seek new technologies and designs to offer the latest in footwear comfort and performance.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Team Section -->
+        <section class="py-5 bg-light" aria-labelledby="team-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="team-heading" class="border-bottom border-3 border-dark pb-2 mb-3">Meet Our Team</h2>
+                    <p class="lead">The passionate individuals behind KP Shoe Store's success</p>
+                </header>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <img src="Images/CEO.png" class="rounded-circle mb-3" alt="Portrait of Kezy Paldo, Founder & CEO" width="120" height="120">
+                                <h3 class="card-title h5">Kezy Paldo</h3>
+                                <p class="card-text text-dark fw-bold">Founder & CEO</p>
+                                <p class="card-text">With over 20 years in the footwear industry, Kezy's vision continues to guide our store's direction and community involvement.</p>
+                                <address class="mt-3">
+                                    <a href="#" class="me-2" style="color: #1adfdf;" aria-label="Connect with Kezy on LinkedIn"><i class="bi bi-linkedin fs-5" aria-hidden="true"></i></a>
+                                    <a href="mailto:kezy@kpshoestore.com" style="color: #1adfdf;" aria-label="Email Kezy"><i class="bi bi-envelope fs-5" aria-hidden="true"></i></a>
+                                </address>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <img src="Images/Manager.png" class="rounded-circle mb-3" alt="Portrait of Mezy Santos, Store Manager" width="120" height="120">
+                                <h3 class="card-title h5">Mezy Santos</h3>
+                                <p class="card-text text-dark fw-bold">Store Manager</p>
+                                <p class="card-text">Mezy ensures every customer receives the personalized attention that makes our store special. He's been with us for 15 years.</p>
+                                <address class="mt-3">
+                                    <a href="#" class="me-2" style="color: #1adfdf;" aria-label="Connect with Mezy on LinkedIn"><i class="bi bi-linkedin fs-5" aria-hidden="true"></i></a>
+                                    <a href="mailto:mezy@kpshoestore.com" style="color: #1adfdf;" aria-label="Email Mezy"><i class="bi bi-envelope fs-5" aria-hidden="true"></i></a>
+                                </address>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <article class="card text-center border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <img src="Images/Product Specialist.png" class="rounded-circle mb-3" alt="Portrait of Lezy Cruz, Product Specialist" width="120" height="120">
+                                <h3 class="card-title h5">Lezy Cruz</h3>
+                                <p class="card-text text-dark fw-bold">Product Specialist</p>
+                                <p class="card-text">Lezy's expertise in footwear technology helps customers find the perfect shoes for their specific needs and activities.</p>
+                                <address class="mt-3">
+                                    <a href="#" class="me-2" style="color: #1adfdf;" aria-label="Connect with Lezy on LinkedIn"><i class="bi bi-linkedin fs-5" aria-hidden="true"></i></a>
+                                    <a href="mailto:lezy@kpshoestore.com" style="color: #1adfdf;" aria-label="Email Lezy"><i class="bi bi-envelope fs-5" aria-hidden="true"></i></a>
+                                </address>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Involvement Section -->
+        <section class="py-5" aria-labelledby="community-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="community-heading" class="border-bottom border-3 border-dark pb-2 mb-3">Community Involvement</h2>
+                    <p class="lead">We believe in giving back to the community that has supported us for over two decades.</p>
+                </header>
+                
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <article class="d-flex">
+                                    <div class="flex-shrink-0" style="color: #1adfdf;">
+                                        <i class="bi bi-trophy fs-1" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h3 class="h5">Local Sports Sponsorship</h3>
+                                        <p>We sponsor youth sports teams and provide athletic footwear for promising young athletes in Bontoc.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <article class="d-flex">
+                                    <div class="flex-shrink-0" style="color: #1adfdf;">
+                                        <i class="bi bi-tree fs-1" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h3 class="h5">Environmental Initiatives</h3>
+                                        <p>We organize community clean-up drives and tree planting activities to preserve Mountain Province's natural beauty.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <article class="d-flex">
+                                    <div class="flex-shrink-0" style="color: #1adfdf;">
+                                        <i class="bi bi-heart-pulse fs-1" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h3 class="h5">Health & Wellness Programs</h3>
+                                        <p>We host walking clubs and fitness challenges to promote active lifestyles in our community.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <article class="d-flex">
+                                    <div class="flex-shrink-0" style="color: #1adfdf;">
+                                        <i class="bi bi-book fs-1" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h3 class="h5">Educational Support</h3>
+                                        <p>We provide school supplies and footwear for underprivileged students at the start of each school year.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-5" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <header class="text-center mb-5">
+                    <h2 id="testimonials-heading" class="border-bottom border-3 border-dark pb-2 mb-3">What Our Customers Say</h2>
+                </header>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <blockquote class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <p class="mb-4 fst-italic">"I've been buying my shoes from KP Shoe Store for over 10 years. Their knowledgeable staff always helps me find the perfect fit for my hiking adventures."</p>
+                                <footer class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="rounded-circle me-3" alt="Portrait of John Dela Cruz" width="60" height="60">
+                                    <div>
+                                        <cite class="mb-0 d-block">John Dela Cruz</cite>
+                                        <small class="text-muted">Regular Customer</small>
+                                    </div>
+                                </footer>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <blockquote class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <p class="mb-4 fst-italic">"As a runner, I need shoes that can handle tough terrain. KP Shoe Store not only has the best selection but their staff really understands athletic footwear."</p>
+                                <footer class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/women/33.jpg" class="rounded-circle me-3" alt="Portrait of Maria Santos" width="60" height="60">
+                                    <div>
+                                        <cite class="mb-0 d-block">Maria Santos</cite>
+                                        <small class="text-muted">Marathon Runner</small>
+                                    </div>
+                                </footer>
+                            </div>
+                        </blockquote>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <blockquote class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <p class="mb-4 fst-italic">"The quality of their formal shoes is exceptional. I bought a pair for my wedding and they were incredibly comfortable throughout the entire event."</p>
+                                <footer class="d-flex align-items-center">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle me-3" alt="Portrait of Robert Garcia" width="60" height="60">
+                                    <div>
+                                        <cite class="mb-0 d-block">Robert Garcia</cite>
+                                        <small class="text-muted">Satisfied Customer</small>
+                                    </div>
+                                </footer>
+                            </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="py-5 text-center bg-light" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading" class="mb-3">Ready to Find Your Perfect Pair?</h2>
+                <p class="lead mb-4">Visit us in store or browse our collection online</p>
+                <a href="index.html" class="btn btn-dark btn-lg me-3">Shop Now</a>
+                <a href="contact.html" class="btn btn-outline-dark btn-lg">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-dark" style="background-color: #1adfdf;">
+        <div class="container p-4">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h2 class="text-uppercase mb-4 fw-bold h5">
+                        <a class="text-dark text-decoration-none" href="index.html">KP Shoe Store</a>
+                    </h2>
+                    <p>
+                        More than just a shoe store, KP Shoe Store is a part of the Bontoc community. We are your neighbors, here to help you find footwear that fits not just your feet, but your lifestyle.
+                    </p>
+                </div>
+                
+                <!-- Products -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="text-uppercase mb-4 fw-bold h5">Products</h2>
+                    <nav aria-label="Product categories">
+                        <p><a class="text-dark text-decoration-underline" href="Athletic.html">Athletic Shoes</a></p>
+                        <p><a class="text-dark text-decoration-underline" href="formal.html">Formal Shoes</a></p>
+                        <p><a class="text-dark text-decoration-underline" href="boots.html">Boots</a></p>
+                    </nav>
+                </div>
+                
+                <!-- Contact -->
+                <address class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h2 class="text-uppercase mb-4 fw-bold h5">
+                        <a class="text-dark text-decoration-none" href="contact.html">Contact Us</a>
+                    </h2>
+                    <p>
+                        <a href="https://www.google.com/maps/place/Poblacion+(Bontoc),+Bontoc,+Mountain+Province/@17.089809,120.9703332,16z/data=!3m1!4b1!4m6!3m5!1s0x338fd21f09118ad5:0x7a9aef90d57be61f!8m2!3d17.0902441!4d120.977594!16s%2Fg%2F11f0wm1hkw?entry=ttu" target="_blank" class="text-dark text-decoration-none">
+                            <i class="bi bi-geo-alt me-2" aria-hidden="true"></i> Bontoc, Mountain Province
+                        </a>
+                    </p>
+                    <p>
+                        <a href="mailto:infokpshoestore@gmail.com" class="text-dark text-decoration-none">
+                            <i class="bi bi-envelope me-2" aria-hidden="true"></i> infokpshoestore@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <a href="tel:+639569169498" class="text-dark text-decoration-underline d-inline d-md-none">
+                            <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+                        </a>
+                        <span class="text-dark d-none d-md-inline">
+                            <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+                        </span>
+                    </p>
+                </address>
+                
+                <!-- Social Media -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h2 class="text-uppercase mb-4 fw-bold h5">Follow us</h2>
+                    <nav aria-label="Social media links">
+                        <div class="d-flex justify-content-center justify-content-md-start">
+                            <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.facebook.com/" role="button" aria-label="Visit our Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                            <a class="btn btn-dark btn-floating m-1 text-white" href="https://twitter.com" role="button" aria-label="Visit our Twitter page"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                            <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.google.com/" role="button" aria-label="Visit our Google Business page"><i class="bi bi-google" aria-hidden="true"></i></a>
+                            <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.instagram.com" role="button" aria-label="Visit our Instagram page"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="text-center text-white p-3 bg-dark">
+            <small>&copy; 2023 Copyright: <a class="text-white text-decoration-none" href="index.html">KPShoeStore.com</a></small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KP Shoe Store - Cart</title>
+    <meta name="description" content="Review your shopping cart at KP Shoe Store. Manage items, apply vouchers, and proceed to checkout for premium footwear.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cart-link {
+        position: relative;
+      }
+      .btn-custom {
+        background-color: #1adfdf;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #17c9c9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      .cart-item {
+        transition: all 0.3s ease;
+      }
+      .cart-item.removing {
+        opacity: 0.5;
+        transform: translateX(-100px);
+      }
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .case-badge {
+        background-color: #6c757d;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+      /* Remove blue focus rings */
+      .navbar .dropdown-toggle:focus {
+        box-shadow: none !important;
+      }
+      .navbar-nav .nav-link:focus {
+        box-shadow: none !important;
+      }
+      .dropdown-item:focus {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+      .form-control:focus {
+        box-shadow: none !important;
+        border-color: #1adfdf !important;
+      }
+      .btn-dark:focus {
+        box-shadow: none !important;
+      }
+      /* Custom focus styles for accessibility */
+      .nav-link:focus-visible,
+      .dropdown-item:focus-visible {
+        outline: 2px solid #1adfdf;
+        outline-offset: 2px;
+      }
+      .btn:focus-visible {
+        outline: 2px solid #1adfdf;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    
+    <!-- Header with Navigation -->
+    <header>
+      <nav class="navbar navbar-expand-lg" style="background-color: #1adfdf;" aria-label="Main navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand text-dark fw-bold" href="index.html">
+            <img src="Images/Logo.png" alt="KP Shoe Store Logo" width="70" height="70" class="d-inline-block align-text-middle rounded-circle">
+            KP SHOE STORE
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="index.html"><i class="bi bi-house-door" aria-hidden="true"></i> HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="about.html"><i class="bi bi-exclamation-diamond" aria-hidden="true"></i> ABOUT US</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-handbag" aria-hidden="true"></i> PRODUCTS</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Athletic.html">Athletic Shoes</a></li>
+                  <li><a class="dropdown-item" href="formal.html">Formal Shoes</a></li>
+                  <li><a class="dropdown-item" href="boots.html">Boots</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium cart-link" href="cart.html">
+                  <i class="bi bi-cart3" aria-hidden="true"></i> CART
+                  <span id="cartCount" class="cart-badge">0</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="contact.html"><i class="bi bi-telephone" aria-hidden="true"></i> CONTACT US</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> LOGIN/REGISTER</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item" href="register.html">Register</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+              <button class="btn btn-dark text-white" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Cart Section -->
+      <section class="container my-5" aria-labelledby="cart-heading">
+        <header class="text-center mb-4">
+          <h1 id="cart-heading" class="text-dark">SHOPPING CART</h1>
+        </header>
+        
+        <!-- Empty Cart Alert -->
+        <div id="emptyCartAlert" class="alert alert-info text-center d-none" role="alert" aria-live="polite">
+          <i class="bi bi-cart-x fs-1 d-block mb-3" aria-hidden="true"></i>
+          <h2 class="h4">Your cart is empty</h2>
+          <p class="mb-3">Browse our products and add some items to your cart!</p>
+          <a href="index.html" class="btn btn-custom">
+            <i class="bi bi-bag" aria-hidden="true"></i> Start Shopping
+          </a>
+        </div>
+        
+        <div id="cartContent" class="row">
+          <!-- Cart items will be dynamically inserted here in left column -->
+          <div class="col-lg-8" id="cartItemsColumn">
+            <!-- Items will be dynamically added here -->
+          </div>
+          
+          <!-- Right Column - Order Summary & Voucher -->
+          <div class="col-lg-4">
+            <div id="cartSummary" class="d-none">
+              <!-- Order Summary -->
+              <article class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                  <h2 class="card-title h5 mb-4 text-dark">Order Summary</h2>
+                  <dl class="row mb-2">
+                    <dt class="col-8 text-dark">Subtotal (<span id="item-count">0</span> items):</dt>
+                    <dd class="col-4 text-end text-dark" id="subtotal">Php 0.00</dd>
+                  </dl>
+                  <dl class="row mb-2">
+                    <dt class="col-8 text-dark">Shipping Fee:</dt>
+                    <dd class="col-4 text-end text-dark" id="shipping">Php 500.00</dd>
+                  </dl>
+                  <dl class="row mb-3">
+                    <dt class="col-8 text-dark">Voucher:</dt>
+                    <dd class="col-4 text-end text-dark" id="voucher-discount">Php 0.00</dd>
+                  </dl>
+                  <hr>
+                  <dl class="row">
+                    <dt class="col-8 h5 text-dark">Total:</dt>
+                    <dd class="col-4 text-end h5 text-dark" id="total">Php 500.00</dd>
+                  </dl>
+                  
+                  <div class="mt-4">
+                    <button class="btn btn-dark w-100 mb-3 py-2" id="checkout-btn">
+                      <i class="bi bi-credit-card" aria-hidden="true"></i> Proceed to Payment
+                    </button>
+                    <a href="#" class="btn btn-custom w-100 mb-3 py-2" id="continue-shopping-btn">
+                      <i class="bi bi-cart-plus" aria-hidden="true"></i> Continue Shopping
+                    </a>
+                    <button class="btn btn-outline-dark w-100 py-2" id="clear-cart-btn">
+                      <i class="bi bi-trash" aria-hidden="true"></i> Clear Cart
+                    </button>
+                  </div>
+                </div>
+              </article>
+              
+              <!-- Voucher Section -->
+              <section class="card border-0 shadow-sm" aria-labelledby="voucher-heading">
+                <div class="card-body">
+                  <h3 id="voucher-heading" class="card-title h6 mb-3 text-dark">Apply Voucher</h3>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="voucher-code" placeholder="Enter voucher code" aria-label="Voucher code">
+                    <button class="btn btn-dark" id="apply-voucher">Apply</button>
+                  </div>
+                  <div id="voucher-message" class="mt-2 small" role="alert" aria-live="polite"></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success Modal -->
+      <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <header class="modal-header border-0">
+              <h2 class="modal-title h5 text-dark" id="successModalLabel">Success!</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </header>
+            <div class="modal-body text-center py-4">
+              <i class="bi bi-check-circle-fill text-success display-4 mb-3" aria-hidden="true"></i>
+              <h3 class="h5 text-dark mb-3">Cart cleared successfully!</h3>
+              <p class="text-muted">All items have been removed from your cart.</p>
+            </div>
+            <footer class="modal-footer border-0 justify-content-center">
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Continue Shopping</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkout Modal -->
+      <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <header class="modal-header border-0">
+              <h2 class="modal-title h5 text-dark" id="checkoutModalLabel">Checkout</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </header>
+            <div class="modal-body py-4">
+              <div class="alert alert-info" role="status">
+                <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+                This is a demo checkout page. In a real application, this would redirect to a payment gateway.
+              </div>
+              <p class="text-dark mb-3">Order Total: <strong id="checkout-total">Php 0.00</strong></p>
+              <fieldset>
+                <legend class="visually-hidden">Payment Method</legend>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                  <label class="form-check-label text-dark" for="creditCard">
+                    Credit/Debit Card
+                  </label>
+                </div>
+                <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                  <label class="form-check-label text-dark" for="paypal">
+                    PayPal
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="paymentMethod" id="cod">
+                  <label class="form-check-label text-dark" for="cod">
+                    Cash on Delivery
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+            <footer class="modal-footer border-0">
+              <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-dark" id="confirm-payment">Confirm Payment</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Success Modal -->
+      <div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-labelledby="paymentSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <header class="modal-header border-0">
+              <h2 class="modal-title h5 text-dark" id="paymentSuccessModalLabel">Payment Successful!</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </header>
+            <div class="modal-body text-center py-4">
+              <i class="bi bi-bag-check-fill text-success display-4 mb-3" aria-hidden="true"></i>
+              <h3 class="h5 text-dark mb-3">Thank you for your order!</h3>
+              <p class="text-muted">Your order has been confirmed and will be shipped soon.</p>
+              <p class="text-dark"><strong>Order Total: <span id="order-total">Php 0.00</span></strong></p>
+            </div>
+            <footer class="modal-footer border-0 justify-content-center">
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="continue-after-payment">Continue Shopping</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-dark" style="background-color: #1adfdf;">
+      <div class="container p-4">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="index.html">KP Shoe Store</a>
+            </h2>
+            <p>
+              More than just a shoe store, KP Shoe Store is a part of the Bontoc community. We are your neighbors, here to help you find footwear that fits not just your feet, but your lifestyle.
+            </p>
+          </div>
+          
+          <!-- Products -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Products</h2>
+            <nav aria-label="Product categories">
+              <p><a class="text-dark text-decoration-underline" href="Athletic.html">Athletic Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="formal.html">Formal Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="boots.html">Boots</a></p>
+            </nav>
+          </div>
+          
+          <!-- Contact -->
+          <address class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="contact.html">Contact Us</a>
+            </h2>
+            <p>
+              <a href="https://www.google.com/maps/place/Poblacion+(Bontoc),+Bontoc,+Mountain+Province/@17.089809,120.9703332,16z/data=!3m1!4b1!4m6!3m5!1s0x338fd21f09118ad5:0x7a9aef90d57be61f!8m2!3d17.0902441!4d120.977594!16s%2Fg%2F11f0wm1hkw?entry=ttu" target="_blank" class="text-dark text-decoration-none">
+                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i> Bontoc, Mountain Province
+              </a>
+            </p>
+            <p>
+              <a href="mailto:infokpshoestore@gmail.com" class="text-dark text-decoration-none">
+                <i class="bi bi-envelope me-2" aria-hidden="true"></i> infokpshoestore@gmail.com
+              </a>
+            </p>
+            <p>
+              <a href="tel:+639569169498" class="text-dark text-decoration-underline d-inline d-md-none">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </a>
+              <span class="text-dark d-none d-md-inline">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </span>
+            </p>
+          </address>
+          
+          <!-- Social Media -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Follow us</h2>
+            <nav aria-label="Social media links">
+              <div class="d-flex justify-content-center justify-content-md-start">
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.facebook.com/" role="button" aria-label="Visit our Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://twitter.com" role="button" aria-label="Visit our Twitter page"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.google.com/" role="button" aria-label="Visit our Google Business page"><i class="bi bi-google" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.instagram.com" role="button" aria-label="Visit our Instagram page"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright Section -->
+      <div class="text-center text-white p-3 bg-dark">
+        <small>&copy; 2023 Copyright: <a class="text-white text-decoration-none" href="index.html">KPShoeStore.com</a></small>
+      </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+    <script>
+      // Cart functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize cart display
+        updateCartDisplay();
+        updateContinueShoppingButton();
+        
+        // Update cart count in navbar
+        function updateCartCount() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+          
+          const cartCount = document.getElementById('cartCount');
+          if (totalItems > 0) {
+            cartCount.textContent = totalItems;
+          } else {
+            cartCount.textContent = '0';
+          }
+        }
+        
+        // Update Continue Shopping button based on last visited product page
+        function updateContinueShoppingButton() {
+          let lastProductPage = localStorage.getItem('lastProductPage');
+          
+          // If no last product page is stored, try to determine from cart items
+          if (!lastProductPage) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length > 0) {
+              // Get the most recently added item and guess the page
+              const lastItem = cart[cart.length - 1];
+              if (lastItem.product.includes('Athletic') || lastItem.product.includes('Soccer') || lastItem.product.includes('Basketball') || lastItem.product.includes('Badminton')) {
+                lastProductPage = 'Athletic.html';
+              } else if (lastItem.product.includes('Formal') || lastItem.product.includes('Oxford') || lastItem.product.includes('Derby') || lastItem.product.includes('Loafer')) {
+                lastProductPage = 'formal.html';
+              } else if (lastItem.product.includes('Boot') || lastItem.product.includes('Hiking') || lastItem.product.includes('Work') || lastItem.product.includes('Combat')) {
+                lastProductPage = 'boots.html';
+              } else {
+                lastProductPage = 'index.html';
+              }
+            } else {
+              lastProductPage = 'index.html';
+            }
+          }
+          
+          const continueShoppingBtn = document.getElementById('continue-shopping-btn');
+          
+          // Set the href based on the last visited product page
+          continueShoppingBtn.href = lastProductPage;
+          
+          // Update the button text based on the page
+          const pageNames = {
+            'Athletic.html': 'Continue with Athletic Shoes',
+            'formal.html': 'Continue with Formal Shoes', 
+            'boots.html': 'Continue with Boots',
+            'index.html': 'Continue Shopping Top Product'
+          };
+          
+          const buttonText = pageNames[lastProductPage] || 'Continue Shopping';
+          continueShoppingBtn.innerHTML = `<i class="bi bi-cart-plus" aria-hidden="true"></i> ${buttonText}`;
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const cartItemsColumn = document.getElementById('cartItemsColumn');
+          const cartSummary = document.getElementById('cartSummary');
+          const emptyCartAlert = document.getElementById('emptyCartAlert');
+          
+          if (cart.length === 0) {
+            // Show empty cart message
+            cartItemsColumn.innerHTML = '';
+            cartSummary.classList.add('d-none');
+            emptyCartAlert.classList.remove('d-none');
+          } else {
+            // Show cart items
+            emptyCartAlert.classList.add('d-none');
+            cartSummary.classList.remove('d-none');
+            renderCartItems(cart);
+          }
+          
+          updateCartCount();
+          updateCartSummary();
+        }
+        
+        // Render cart items
+        function renderCartItems(cart) {
+          const cartItemsColumn = document.getElementById('cartItemsColumn');
+          cartItemsColumn.innerHTML = '';
+          
+          cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            const cartItem = document.createElement('article');
+            cartItem.className = 'card border-0 shadow-sm mb-3 cart-item';
+            cartItem.innerHTML = `
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-md-3 mb-3 mb-md-0">
+                    <img src="${item.image}" class="img-fluid rounded" alt="${item.product}">
+                  </div>
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <h3 class="card-title h5 text-dark mb-2">${item.product}</h3>
+                    <p class="card-text text-muted mb-2">${getProductDescription(item.product)}</p>
+                    <div class="mb-2">
+                      <span class="case-badge">${getCaseInfo(item.product)}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <span class="badge bg-dark me-2">Size: ${getDefaultSize(item.product)}</span>
+                      <span class="badge bg-dark">Color: ${getDefaultColor(item.product)}</span>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <p class="h5 text-primary mb-2">Php ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                    <div class="quantity-controls mb-3">
+                      <button class="btn btn-outline-dark quantity-btn minus-btn" data-index="${index}" aria-label="Decrease quantity">-</button>
+                      <span class="mx-2 fw-bold" aria-live="polite">${item.quantity}</span>
+                      <button class="btn btn-outline-dark quantity-btn plus-btn" data-index="${index}" aria-label="Increase quantity">+</button>
+                    </div>
+                    <p class="h6 text-dark mb-3">Total: Php ${itemTotal.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                    <button class="btn btn-outline-danger btn-sm remove-btn" data-index="${index}">
+                      <i class="bi bi-trash" aria-hidden="true"></i> Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+            cartItemsColumn.appendChild(cartItem);
+          });
+          
+          // Add event listeners to new elements
+          attachCartEventListeners();
+        }
+        
+        // Get product description
+        function getProductDescription(product) {
+          const descriptions = {
+            'Athletic Shoe': 'Engineered for speed and comfort, this is the ultimate high-performance shoe for dominating the court.',
+            'Formal Shoe': 'This elegantly crafted shoe offers distinguished style and support for your professional wardrobe.',
+            'Boot': 'A durable and versatile boot, built wider for unwavering comfort on any adventure.',
+            'Soccer Shoe': 'Engineered for speed and comfort, this is the ultimate high-performance shoe for dominating the court.',
+            'Badminton Shoe': 'This elegantly crafted shoe offers distinguished style and support for your professional wardrobe.',
+            'Basketball Shoe': 'A durable and versatile boot, built wider for unwavering comfort on any adventure.',
+            'Classic Oxford': 'Timeless elegance with premium leather construction, perfect for business meetings and formal occasions.',
+            'Modern Derby': 'Versatile and comfortable with contemporary styling, ideal for both office wear and special events.',
+            'Executive Loafer': 'Sophisticated slip-on design offering both style and convenience for the modern professional.',
+            'Hiking Boot': 'Engineered for speed and comfort, this is the ultimate high-performance shoe for dominating the court.',
+            'Work Boot': 'This elegantly crafted shoe offers distinguished style and support for your professional wardrobe.',
+            'Combat Boot': 'A durable and versatile boot, built wider for unwavering comfort on any adventure.'
+          };
+          return descriptions[product] || 'Premium quality footwear for your needs.';
+        }
+        
+        // Get case information
+        function getCaseInfo(product) {
+          const cases = {
+            'Athletic Shoe': 'CASE 3 - CANE TIPS',
+            'Formal Shoe': 'CASE 4 - CANE TIPS', 
+            'Boot': 'CASE 5 - CANE ROWS',
+            'Soccer Shoe': 'CASE 3 - CANE TIPS',
+            'Badminton Shoe': 'CASE 3 - CANE TIPS',
+            'Basketball Shoe': 'CASE 3 - CANE TIPS',
+            'Classic Oxford': 'CASE 4 - CANE TIPS',
+            'Modern Derby': 'CASE 4 - CANE TIPS',
+            'Executive Loafer': 'CASE 4 - CANE TIPS',
+            'Hiking Boot': 'CASE 5 - CANE ROWS',
+            'Work Boot': 'CASE 5 - CANE ROWS',
+            'Combat Boot': 'CASE 5 - CANE ROWS'
+          };
+          return cases[product] || 'CASE - STANDARD';
+        }
+        
+        // Get default size
+        function getDefaultSize(product) {
+          const sizes = {
+            'Athletic Shoe': '9',
+            'Formal Shoe': '8',
+            'Boot': '10',
+            'Soccer Shoe': '9',
+            'Badminton Shoe': '8',
+            'Basketball Shoe': '10',
+            'Classic Oxford': '8',
+            'Modern Derby': '8',
+            'Executive Loafer': '9',
+            'Hiking Boot': '10',
+            'Work Boot': '10',
+            'Combat Boot': '9'
+          };
+          return sizes[product] || 'M';
+        }
+        
+        // Get default color
+        function getDefaultColor(product) {
+          const colors = {
+            'Athletic Shoe': 'Blue',
+            'Formal Shoe': 'Black',
+            'Boot': 'Brown',
+            'Soccer Shoe': 'Blue',
+            'Badminton Shoe': 'White',
+            'Basketball Shoe': 'Red',
+            'Classic Oxford': 'Black',
+            'Modern Derby': 'Brown',
+            'Executive Loafer': 'Black',
+            'Hiking Boot': 'Brown',
+            'Work Boot': 'Black',
+            'Combat Boot': 'Black'
+          };
+          return colors[product] || 'Black';
+        }
+        
+        // Attach event listeners to cart items
+        function attachCartEventListeners() {
+          // Quantity buttons
+          document.querySelectorAll('.plus-btn').forEach(button => {
+            button.addEventListener('click', function() {
+              const index = parseInt(this.dataset.index);
+              updateQuantity(index, 1);
+            });
+          });
+          
+          document.querySelectorAll('.minus-btn').forEach(button => {
+            button.addEventListener('click', function() {
+              const index = parseInt(this.dataset.index);
+              updateQuantity(index, -1);
+            });
+          });
+          
+          // Remove item buttons
+          document.querySelectorAll('.remove-btn').forEach(button => {
+            button.addEventListener('click', function() {
+              const index = parseInt(this.dataset.index);
+              removeItem(index);
+            });
+          });
+        }
+        
+        // Update item quantity
+        function updateQuantity(index, change) {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          if (cart[index]) {
+            cart[index].quantity += change;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            if (cart[index].quantity > 10) cart[index].quantity = 10;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+          }
+        }
+        
+        // Remove item from cart
+        function removeItem(index) {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          const cartItem = document.querySelector(`.cart-item:nth-child(${index + 1})`);
+          
+          if (cartItem) {
+            cartItem.classList.add('removing');
+            setTimeout(() => {
+              cart.splice(index, 1);
+              localStorage.setItem('cart', JSON.stringify(cart));
+              updateCartDisplay();
+            }, 300);
+          }
+        }
+        
+        // Update cart summary
+        function updateCartSummary() {
+          const cart = JSON.parse(localStorage.getItem('cart')) || [];
+          let subtotal = 0;
+          let itemCount = 0;
+          
+          cart.forEach(item => {
+            subtotal += item.price * item.quantity;
+            itemCount += item.quantity;
+          });
+          
+          const shipping = 500; // Fixed shipping fee
+          const voucherDiscount = parseFloat(document.getElementById('voucher-discount').textContent.replace('Php ', '').replace(',', '')) || 0;
+          const total = subtotal + shipping - voucherDiscount;
+          
+          document.getElementById('subtotal').textContent = `Php ${subtotal.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+          document.getElementById('item-count').textContent = itemCount;
+          document.getElementById('shipping').textContent = `Php ${shipping.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+          document.getElementById('total').textContent = `Php ${total.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+        }
+        
+        // Voucher functionality
+        document.getElementById('apply-voucher').addEventListener('click', function() {
+          const voucherCode = document.getElementById('voucher-code').value.trim();
+          const messageElement = document.getElementById('voucher-message');
+          
+          if (voucherCode === '') {
+            messageElement.innerHTML = '<span class="text-danger">Please enter a voucher code</span>';
+            return;
+          }
+          
+          // Demo voucher codes
+          if (voucherCode === 'SAVE10') {
+            messageElement.innerHTML = '<span class="text-success">10% discount applied successfully!</span>';
+            applyVoucherDiscount(0.1);
+          } else if (voucherCode === 'SAVE20') {
+            messageElement.innerHTML = '<span class="text-success">20% discount applied successfully!</span>';
+            applyVoucherDiscount(0.2);
+          } else if (voucherCode === 'FREESHIP') {
+            messageElement.innerHTML = '<span class="text-success">Free shipping applied successfully!</span>';
+            applyFreeShipping();
+          } else {
+            messageElement.innerHTML = '<span class="text-danger">Invalid voucher code</span>';
+            removeVoucherDiscount();
+          }
+        });
+        
+        // Apply voucher discount
+        function applyVoucherDiscount(discountRate) {
+          const subtotalText = document.getElementById('subtotal').textContent;
+          const subtotal = parseFloat(subtotalText.replace('Php ', '').replace(',', ''));
+          const discount = subtotal * discountRate;
+          
+          document.getElementById('voucher-discount').textContent = `Php ${discount.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+          updateCartSummary();
+        }
+        
+        // Apply free shipping
+        function applyFreeShipping() {
+          document.getElementById('shipping').textContent = 'Php 0.00';
+          document.getElementById('voucher-discount').textContent = 'Php 500.00';
+          updateCartSummary();
+        }
+        
+        // Remove voucher discount
+        function removeVoucherDiscount() {
+          document.getElementById('voucher-discount').textContent = 'Php 0.00';
+          document.getElementById('shipping').textContent = 'Php 500.00';
+          updateCartSummary();
+        }
+        
+        // Clear cart functionality
+        document.getElementById('clear-cart-btn').addEventListener('click', function() {
+          if (confirm('Are you sure you want to clear your cart?')) {
+            localStorage.setItem('cart', JSON.stringify([]));
+            updateCartDisplay();
+            
+            // Show success modal
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+          }
+        });
+        
+        // Checkout functionality
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+          const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+          document.getElementById('checkout-total').textContent = document.getElementById('total').textContent;
+          checkoutModal.show();
+        });
+        
+        // Confirm payment
+        document.getElementById('confirm-payment').addEventListener('click', function() {
+          const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+          checkoutModal.hide();
+          
+          setTimeout(() => {
+            const paymentSuccessModal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+            document.getElementById('order-total').textContent = document.getElementById('total').textContent;
+            paymentSuccessModal.show();
+          }, 300);
+        });
+        
+        // Continue after payment
+        document.getElementById('continue-after-payment').addEventListener('click', function() {
+          // Clear the cart after successful payment
+          localStorage.setItem('cart', JSON.stringify([]));
+          updateCartDisplay();
+        });
+      });
+    </script>
+  </body>
+</html>

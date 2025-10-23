@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - KP Shoe Store</title>
+    <meta name="description" content="Get in touch with KP Shoe Store in Bontoc, Mountain Province. Contact us for inquiries, product support, or visit our store.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+      .btn-custom {
+        background-color: #1adfdf;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #17c9c9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      /* Remove blue focus rings */
+      .navbar .dropdown-toggle:focus {
+        box-shadow: none !important;
+      }
+      .navbar-nav .nav-link:focus {
+        box-shadow: none !important;
+      }
+      .dropdown-item:focus {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+      .form-control:focus {
+        box-shadow: none !important;
+        border-color: #1adfdf !important;
+      }
+      .btn-dark:focus {
+        box-shadow: none !important;
+      }
+      /* Custom focus styles for accessibility */
+      .nav-link:focus-visible,
+      .dropdown-item:focus-visible {
+        outline: 2px solid #1adfdf;
+        outline-offset: 2px;
+      }
+      .btn:focus-visible {
+        outline: 2px solid #1adfdf;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    
+    <!-- Header with Navigation -->
+    <header>
+      <nav class="navbar navbar-expand-lg" style="background-color: #1adfdf;" aria-label="Main navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand text-dark fw-bold" href="index.html">
+            <img src="Images/Logo.png" alt="KP Shoe Store Logo" width="70" height="70" class="d-inline-block align-text-middle rounded-circle">
+            KP SHOE STORE
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="index.html"><i class="bi bi-house-door" aria-hidden="true"></i> HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="about.html"><i class="bi bi-exclamation-diamond" aria-hidden="true"></i> ABOUT US</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-handbag" aria-hidden="true"></i> PRODUCTS</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Athletic.html">Athletic Shoes</a></li>
+                  <li><a class="dropdown-item" href="formal.html">Formal Shoes</a></li>
+                  <li><a class="dropdown-item" href="boots.html">Boots</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="cart.html"><i class="bi bi-cart3" aria-hidden="true"></i> CART</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-medium" href="contact.html"><i class="bi bi-telephone" aria-hidden="true"></i> CONTACT US</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> LOGIN/REGISTER</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item" href="register.html">Register</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+              <button class="btn btn-dark text-white" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Contact Form & Info Section -->
+      <section class="container my-5" aria-labelledby="contact-heading">
+        <header class="text-center mb-5">
+          <h1 id="contact-heading" class="text-dark">Contact Us</h1>
+          <p class="lead text-dark">Get in touch with KP Shoe Store - we're here to help!</p>
+        </header>
+        
+        <div class="row">
+          <!-- Contact Form -->
+          <div class="col-lg-8 mb-4">
+            <article class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h2 class="card-title h3 mb-4 text-dark">Send Us a Message</h2>
+                <form id="contactForm" novalidate>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="firstName" class="form-label text-dark">First Name</label>
+                      <input type="text" class="form-control" id="firstName" required aria-required="true">
+                      <div class="invalid-feedback">
+                        Please provide your first name.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="lastName" class="form-label text-dark">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" required aria-required="true">
+                      <div class="invalid-feedback">
+                        Please provide your last name.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label text-dark">Email Address</label>
+                    <input type="email" class="form-control" id="email" required aria-required="true">
+                    <div class="invalid-feedback">
+                      Please provide a valid email address.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label text-dark">Phone Number <span class="text-muted">(Optional)</span></label>
+                    <input type="tel" class="form-control" id="phone" aria-describedby="phoneHelp">
+                    <div id="phoneHelp" class="form-text">We'll only call if we need to clarify your inquiry.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="subject" class="form-label text-dark">Subject</label>
+                    <select class="form-select" id="subject" required aria-required="true">
+                      <option value="" selected disabled>Choose a subject</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Product Support">Product Support</option>
+                      <option value="Order Assistance">Order Assistance</option>
+                      <option value="Store Feedback">Store Feedback</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a subject.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label text-dark">Message</label>
+                    <textarea class="form-control" id="message" rows="5" required aria-required="true"></textarea>
+                    <div class="invalid-feedback">
+                      Please enter your message.
+                    </div>
+                  </div>
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="newsletter">
+                    <label class="form-check-label text-dark" for="newsletter">Subscribe to our newsletter for updates and promotions</label>
+                  </div>
+                  <button type="submit" class="btn btn-custom px-4">
+                    <i class="bi bi-send me-2" aria-hidden="true"></i>Send Message
+                  </button>
+                </form>
+              </div>
+            </article>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="col-lg-4">
+            <article class="card border-0 shadow-sm mb-4">
+              <div class="card-body">
+                <h2 class="h3 mb-4 text-dark">Get in Touch</h2>
+                
+                <address class="d-flex mb-4">
+                  <div class="flex-shrink-0">
+                    <i class="bi bi-geo-alt-fill fs-4" style="color: #1adfdf;" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h3 class="h5 text-dark">Our Location</h3>
+                    <a href="https://www.google.com/maps/place/Poblacion+(Bontoc),+Bontoc,+Mountain+Province/@17.089809,120.9703332,16z/data=!3m1!4b1!4m6!3m5!1s0x338fd21f09118ad5:0x7a9aef90d57be61f!8m2!3d17.0902441!4d120.977594!16s%2Fg%2F11f0wm1hkw?entry=ttu" target="_blank" class="text-dark text-decoration-none">
+                      Bontoc, Mountain Province
+                    </a>
+                  </div>
+                </address>
+                
+                <div class="d-flex mb-4">
+                  <div class="flex-shrink-0">
+                    <i class="bi bi-telephone-fill fs-4" style="color: #1adfdf;" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h3 class="h5 text-dark">Phone Number</h3>
+                    <a href="tel:+639569169498" class="text-dark text-decoration-underline d-inline d-md-none">
+                      09569169498
+                    </a>
+                    <span class="text-dark d-none d-md-inline">
+                      09569169498
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="d-flex mb-4">
+                  <div class="flex-shrink-0">
+                    <i class="bi bi-envelope-fill fs-4" style="color: #1adfdf;" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h3 class="h5 text-dark">Email Address</h3>
+                    <a href="mailto:infokpshoestore@gmail.com" class="text-dark text-decoration-none">
+                      infokpshoestore@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <i class="bi bi-clock-fill fs-4" style="color: #1adfdf;" aria-hidden="true"></i>
+                  </div>
+                  <div class="flex-grow-1 ms-3">
+                    <h3 class="h5 text-dark">Business Hours</h3>
+                    <p class="text-dark mb-0">Monday - Saturday: 8:00 AM - 7:00 PM<br>Sunday: 9:00 AM - 5:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            
+            <!-- Social Media Links -->
+            <section class="card border-0 shadow-sm" aria-labelledby="social-heading">
+              <div class="card-body text-center">
+                <h3 id="social-heading" class="h5 mb-3 text-dark">Follow Us</h3>
+                <nav aria-label="Social media links">
+                  <div class="d-flex justify-content-center">
+                    <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.facebook.com/" role="button" aria-label="Visit our Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                    <a class="btn btn-dark btn-floating m-1 text-white" href="https://twitter.com" role="button" aria-label="Visit our Twitter page"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                    <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.google.com/" role="button" aria-label="Visit our Google Business page"><i class="bi bi-google" aria-hidden="true"></i></a>
+                    <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.instagram.com" role="button" aria-label="Visit our Instagram page"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                  </div>
+                </nav>
+              </div>
+            </section>
+          </div>
+        </div>
+        
+        <!-- Map Section -->
+        <section class="row mt-5" aria-labelledby="map-heading">
+          <div class="col-12">
+            <article class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h2 id="map-heading" class="h3 mb-3 text-dark">Find Us</h2>
+                <div class="map-container">
+                  <figure class="rounded" style="height: 300px;">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7627.2985909611225!2d120.97548304999998!3d17.08979885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x338fd21f09118ad5%3A0x7a9aef90d57be61f!2sPoblacion%20(Bontoc)%2C%20Bontoc%2C%20Mountain%20Province!5e0!3m2!1sen!2sph!4v1760608681274!5m2!1sen!2sph" 
+                      width="100%" 
+                      height="100%" 
+                      style="border:0; border-radius: 8px;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="KP Shoe Store Location in Bontoc, Mountain Province"
+                      aria-label="Interactive map showing KP Shoe Store location in Bontoc, Mountain Province">
+                    </iframe>
+                    <figcaption class="visually-hidden">Map showing our store location in Bontoc, Mountain Province</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-dark" style="background-color: #1adfdf;">
+      <div class="container p-4">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="index.html">KP Shoe Store</a>
+            </h2>
+            <p>
+              More than just a shoe store, KP Shoe Store is a part of the Bontoc community. We are your neighbors, here to help you find footwear that fits not just your feet, but your lifestyle.
+            </p>
+          </div>
+          
+          <!-- Products -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Products</h2>
+            <nav aria-label="Product categories">
+              <p><a class="text-dark text-decoration-underline" href="Athletic.html">Athletic Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="formal.html">Formal Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="boots.html">Boots</a></p>
+            </nav>
+          </div>
+          
+          <!-- Contact -->
+          <address class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="contact.html">Contact Us</a>
+            </h2>
+            <p>
+              <a href="https://www.google.com/maps/place/Poblacion+(Bontoc),+Bontoc,+Mountain+Province/@17.089809,120.9703332,16z/data=!3m1!4b1!4m6!3m5!1s0x338fd21f09118ad5:0x7a9aef90d57be61f!8m2!3d17.0902441!4d120.977594!16s%2Fg%2F11f0wm1hkw?entry=ttu" target="_blank" class="text-dark text-decoration-none">
+                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i> Bontoc, Mountain Province
+              </a>
+            </p>
+            <p>
+              <a href="mailto:infokpshoestore@gmail.com" class="text-dark text-decoration-none">
+                <i class="bi bi-envelope me-2" aria-hidden="true"></i> infokpshoestore@gmail.com
+              </a>
+            </p>
+            <p>
+              <a href="tel:+639569169498" class="text-dark text-decoration-underline d-inline d-md-none">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </a>
+              <span class="text-dark d-none d-md-inline">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </span>
+            </p>
+          </address>
+          
+          <!-- Social Media -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Follow us</h2>
+            <nav aria-label="Social media links">
+              <div class="d-flex justify-content-center justify-content-md-start">
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.facebook.com/" role="button" aria-label="Visit our Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://twitter.com" role="button" aria-label="Visit our Twitter page"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.google.com/" role="button" aria-label="Visit our Google Business page"><i class="bi bi-google" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.instagram.com" role="button" aria-label="Visit our Instagram page"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright Section -->
+      <div class="text-center text-white p-3 bg-dark">
+        <small>&copy; 2023 Copyright: <a class="text-white text-decoration-none" href="index.html">KPShoeStore.com</a></small>
+      </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+    <script>
+      // Form validation
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          event.stopPropagation();
+          
+          if (form.checkValidity()) {
+            // Form is valid - you would typically send data to server here
+            alert('Thank you for your message! We will get back to you soon.');
+            form.reset();
+            form.classList.remove('was-validated');
+          } else {
+            form.classList.add('was-validated');
+          }
+        }, false);
+        
+        // Real-time validation
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          input.addEventListener('input', function() {
+            if (input.checkValidity()) {
+              input.classList.remove('is-invalid');
+              input.classList.add('is-valid');
+            } else {
+              input.classList.remove('is-valid');
+              input.classList.add('is-invalid');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KP Shoe Store - Create Account</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --aqua: #1db8b8;
+            --aqua-dark: #159797;
+            --black: #000000;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--black);
+        }
+        
+        .registration-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .brand-section {
+            color: white;
+            padding: 2rem;
+        }
+        
+        .brand-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--aqua);
+            margin-bottom: 1rem;
+        }
+        
+        .brand-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--light-gray);
+        }
+        
+        .feature-list i {
+            color: var(--aqua);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .registration-card {
+            border-radius: 15px;
+            border: none;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            border-radius: 15px 15px 0 0 !important;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: white;
+            padding: 2rem 2rem 1rem;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 0.25rem rgba(29, 184, 184, 0.15);
+            background-color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--aqua);
+            border-color: var(--aqua);
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--aqua-dark);
+            border-color: var(--aqua-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 184, 184, 0.3);
+        }
+        
+        .btn-outline-dark {
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 500;
+            border-color: var(--dark-gray);
+            color: var(--dark-gray);
+        }
+        
+        .btn-outline-dark:hover {
+            background-color: var(--dark-gray);
+            border-color: var(--dark-gray);
+            color: white;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--aqua);
+            border-color: var(--aqua);
+        }
+        
+        .divider {
+            color: var(--dark-gray);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .modal-footer {
+            border-top: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .terms-content h6 {
+            color: var(--black);
+            font-weight: 600;
+        }
+        
+        .terms-content p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .toast {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-shoes {
+            margin-top: 2rem;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .shoe-sample {
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, var(--aqua), var(--aqua-dark));
+            opacity: 0.8;
+        }
+        
+        .shoe-sample:nth-child(2) {
+            background: linear-gradient(45deg, var(--black), #333);
+        }
+        
+        .shoe-sample:nth-child(3) {
+            background: linear-gradient(45deg, var(--dark-gray), #adb5bd);
+        }
+        
+        .password-strength-meter {
+            height: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .strength-weak {
+            background-color: #dc3545;
+            width: 25%;
+        }
+        
+        .strength-medium {
+            background-color: #ffc107;
+            width: 50%;
+        }
+        
+        .strength-strong {
+            background-color: #28a745;
+            width: 75%;
+        }
+        
+        .strength-very-strong {
+            background-color: #20c997;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-section {
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .feature-list {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container registration-container">
+        <div class="row align-items-center">
+            <!-- Brand Section -->
+            <section class="col-lg-6 mb-5 mb-lg-0">
+                <div class="brand-section">
+                    <header>
+                        <div class="brand-logo">KP SHOE STORE</div>
+                        <p class="brand-tagline">Step into style with our premium collection of footwear</p>
+                    </header>
+                    
+                    <section class="features-section">
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle"></i> Premium quality materials</li>
+                            <li><i class="bi bi-check-circle"></i> Free shipping on orders over Php 2,000</li>
+                            <li><i class="bi bi-check-circle"></i> 30-day return policy</li>
+                            <li><i class="bi bi-check-circle"></i> Exclusive member discounts</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="product-showcase">
+                        <div class="featured-shoes">
+                            <div class="shoe-sample"></div>
+                            <div class="shoe-sample"></div>
+                            <div class="shoe-sample"></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            
+            <!-- Registration Form Section -->
+            <section class="col-lg-6">
+                <div class="card registration-card">
+                    <header class="card-header text-center">
+                        <h2 class="mb-2 fw-bold">Create Your Account</h2>
+                        <p class="text-muted mb-0">Join our community today</p>
+                    </header>
+                    
+                    <section class="card-body p-4">
+                        <form id="registrationForm" novalidate>
+                            <!-- Personal Information Section -->
+                            <section class="mb-4">
+                                <h5 class="text-dark mb-3">
+                                    <i class="bi bi-person me-2"></i>Personal Information
+                                </h5>
+                                
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid first name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid last name.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Security Section -->
+                            <section class="mb-4">
+                                <h5 class="text-dark mb-3">
+                                    <i class="bi bi-shield-lock me-2"></i>Security
+                                </h5>
+                                
+                                <div class="mb-3">
+                                    <label for="inputPassword" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Create a password" required minlength="8">
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength-meter mt-2" id="passwordStrength"></div>
+                                    <div class="form-text" id="passwordFeedback"></div>
+                                    <div class="invalid-feedback">
+                                        Password must be at least 8 characters long.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                                    </div>
+                                    <div class="form-text" id="confirmPasswordFeedback"></div>
+                                    <div class="invalid-feedback">
+                                        Passwords must match.
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Terms Section -->
+                            <section class="mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the 
+                                        <a href="#" class="text-decoration-none fw-bold" style="color: var(--aqua);" data-bs-toggle="modal" data-bs-target="#termsModal">
+                                            Terms of Service
+                                        </a> 
+                                        and 
+                                        <a href="#" class="text-decoration-none fw-bold" style="color: var(--aqua);" data-bs-toggle="modal" data-bs-target="#privacyModal">
+                                            Privacy Policy
+                                        </a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to the terms and conditions.
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Submit Section -->
+                            <section class="form-action">
+                                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold mb-3">
+                                    Create Account
+                                </button>
+                            </section>
+
+                            <!-- Divider Section -->
+                            <section class="divider-section">
+                                <div class="divider d-flex align-items-center my-4">
+                                    <div class="flex-grow-1 border-top"></div>
+                                    <div class="px-3 text-muted">or continue with</div>
+                                    <div class="flex-grow-1 border-top"></div>
+                                </div>
+                            </section>
+
+                            <!-- Social Login Section -->
+                            <section class="social-login">
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark w-100 py-2 mb-3" id="googleSignIn">
+                                        <i class="bi bi-google me-2"></i>Sign up with Google
+                                    </button>
+                                </div>
+                            </section>
+
+                            <!-- Login Link Section -->
+                            <section class="login-link">
+                                <div class="text-center mt-4">
+                                    <p class="mb-0">Already have an account? 
+                                        <a href="login.html" class="text-decoration-none fw-bold" style="color: var(--aqua);">Sign in</a>
+                                    </p>
+                                </div>
+                            </section>
+                        </form>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Terms of Service Modal -->
+    <section class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">
+                        <i class="bi bi-file-text me-2"></i>Terms of Service
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body terms-content">
+                    <article>
+                        <h6 class="mb-3">Last Updated: December 10, 2024</h6>
+                        
+                        <h6>1. Agreement to Terms</h6>
+                        <p class="mb-3">By accessing or using KP Shoe Store, you agree to be bound by these Terms of Service and our Privacy Policy.</p>
+                        
+                        <h6>2. Account Registration</h6>
+                        <p class="mb-3">You must be at least 18 years old to create an account. You agree to provide accurate, current, and complete information during the registration process.</p>
+                        
+                        <h6>3. Products and Pricing</h6>
+                        <p class="mb-3">All product descriptions, images, and prices are subject to change. We reserve the right to limit quantities and refuse service.</p>
+                        
+                        <h6>4. Orders and Payment</h6>
+                        <p class="mb-3">Order acceptance is confirmed by shipment confirmation email. We accept various payment methods including credit cards and digital wallets.</p>
+                        
+                        <h6>5. Shipping and Delivery</h6>
+                        <p class="mb-3">Shipping times are estimates and not guaranteed. Risk of loss passes to you upon delivery to the carrier.</p>
+                        
+                        <h6>6. Returns and Refunds</h6>
+                        <p class="mb-3">Items may be returned within 30 days of delivery in original condition. Return shipping costs are the responsibility of the customer.</p>
+                        
+                        <h6>7. Intellectual Property</h6>
+                        <p class="mb-3">All content on this site, including logos, text, images, and software, is the property of KP Shoe Store and protected by copyright laws.</p>
+                        
+                        <h6>8. Limitation of Liability</h6>
+                        <p class="mb-3">KP Shoe Store shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the site or products.</p>
+                        
+                        <h6>9. Contact Information</h6>
+                        <p class="mb-0">Questions about these Terms of Service should be sent to infokpshoestore@gmail.com</p>
+                    </article>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Modal -->
+    <section class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h5 class="modal-title" id="privacyModalLabel">
+                        <i class="bi bi-shield-lock me-2"></i>Privacy Policy
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body terms-content">
+                    <article>
+                        <h6 class="mb-3">Last Updated: December 10, 2024</h6>
+                        
+                        <h6>1. Information We Collect</h6>
+                        <p class="mb-3">We collect personal information including name, email address, shipping address, and payment details to process your orders and provide our services.</p>
+                        
+                        <h6>2. How We Use Your Information</h6>
+                        <p class="mb-3">We use your information to process orders, communicate with you about products and promotions, improve our services, and prevent fraud.</p>
+                        
+                        <h6>3. Data Sharing</h6>
+                        <p class="mb-3">We do not sell your personal information. We may share information with shipping carriers and payment processors to fulfill your orders.</p>
+                        
+                        <h6>4. Data Security</h6>
+                        <p class="mb-3">We implement appropriate security measures including SSL encryption and secure payment processing to protect your personal information.</p>
+                        
+                        <h6>5. Your Rights</h6>
+                        <p class="mb-3">You have the right to access, correct, or delete your personal data. You may also object to certain processing activities.</p>
+                        
+                        <h6>6. Cookies and Tracking</h6>
+                        <p class="mb-3">We use cookies for essential functionality, analytics, and personalized advertising (with your consent).</p>
+                        
+                        <h6>7. Data Retention</h6>
+                        <p class="mb-3">We retain your personal information only as long as necessary for order processing, legal compliance, and business records.</p>
+                        
+                        <h6>8. Children's Privacy</h6>
+                        <p class="mb-3">Our services are not directed to individuals under 16. We do not knowingly collect personal information from children.</p>
+                        
+                        <h6>9. Contact Us</h6>
+                        <p class="mb-0">If you have questions about this Privacy Policy, contact us at infokpshoestore@gmail.com</p>
+                    </article>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Toast -->
+    <section class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <header class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </header>
+            <section class="toast-body">
+                Your account has been created successfully!
+            </section>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const passwordInput = document.getElementById('inputPassword');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordFeedback = document.getElementById('passwordFeedback');
+            const confirmPasswordFeedback = document.getElementById('confirmPasswordFeedback');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const togglePassword = document.getElementById('togglePassword');
+            const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="bi bi-eye"></i>' : '<i class="bi bi-eye-slash"></i>';
+            });
+            
+            // Password validation
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                
+                // Password strength calculation
+                let strength = 0;
+                if (password.length >= 8) strength++;
+                if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+                if (password.match(/\d/)) strength++;
+                if (password.match(/[^a-zA-Z\d]/)) strength++;
+                
+                // Update strength meter
+                passwordStrength.className = 'password-strength-meter';
+                if (password.length > 0) {
+                    if (strength < 2) {
+                        passwordStrength.classList.add('strength-weak');
+                        passwordFeedback.textContent = 'Password strength: Weak';
+                        passwordFeedback.className = 'form-text text-danger';
+                    } else if (strength < 3) {
+                        passwordStrength.classList.add('strength-medium');
+                        passwordFeedback.textContent = 'Password strength: Medium';
+                        passwordFeedback.className = 'form-text text-warning';
+                    } else if (strength < 4) {
+                        passwordStrength.classList.add('strength-strong');
+                        passwordFeedback.textContent = 'Password strength: Strong';
+                        passwordFeedback.className = 'form-text text-success';
+                    } else {
+                        passwordStrength.classList.add('strength-very-strong');
+                        passwordFeedback.textContent = 'Password strength: Very Strong';
+                        passwordFeedback.className = 'form-text text-success';
+                    }
+                } else {
+                    passwordFeedback.textContent = '';
+                }
+                
+                // Check if passwords match
+                if (confirmPasswordInput.value) {
+                    validatePasswordMatch();
+                }
+            });
+            
+            // Confirm password validation
+            confirmPasswordInput.addEventListener('input', validatePasswordMatch);
+            
+            function validatePasswordMatch() {
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                
+                if (password && confirmPassword) {
+                    if (password !== confirmPassword) {
+                        confirmPasswordFeedback.textContent = 'Passwords do not match';
+                        confirmPasswordFeedback.className = 'form-text text-danger';
+                        confirmPasswordInput.setCustomValidity("Passwords don't match");
+                    } else {
+                        confirmPasswordFeedback.textContent = 'Passwords match';
+                        confirmPasswordFeedback.className = 'form-text text-success';
+                        confirmPasswordInput.setCustomValidity('');
+                    }
+                }
+            }
+            
+            // Form submission
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                // Check form validity
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                
+                // If form is valid, simulate successful registration
+                // In a real application, you would send the data to your server here
+                
+                // Show success message
+                successToast.show();
+                
+                // Redirect to login page after a delay
+                setTimeout(function() {
+                    window.location.href = 'login.html';
+                }, 2000);
+            });
+            
+            // Google Sign In button
+            document.getElementById('googleSignIn').addEventListener('click', function() {
+                // In a real application, you would implement Google OAuth here
+                alert('Google Sign Up functionality would be implemented here');
+            });
+        });
+    </script>
+</body>
+</html>

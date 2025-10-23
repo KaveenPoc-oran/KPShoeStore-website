@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KP Shoe Store - Athletic Shoes</title>
+    <meta name="description" content="Shop premium athletic shoes at KP Shoe Store - soccer shoes, badminton shoes, basketball shoes and more for your active lifestyle.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cart-link {
+        position: relative;
+      }
+      .btn-custom {
+        background-color: #1adfdf;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #17c9c9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      }
+      .product-image {
+        height: 200px;
+        object-fit: contain;
+        padding: 1rem;
+      }
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      /* Remove blue focus rings from navigation */
+      .navbar .dropdown-toggle:focus {
+        box-shadow: none !important;
+      }
+      .navbar-nav .nav-link:focus {
+        box-shadow: none !important;
+      }
+      .dropdown-item:focus {
+        background-color: transparent !important;
+        box-shadow: none !important;
+      }
+      /* Remove focus from search input and button */
+      .form-control:focus {
+        box-shadow: none !important;
+        border-color: #1adfdf !important;
+      }
+      .btn-dark:focus {
+        box-shadow: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1adfdf;" aria-label="Main navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand text-dark fw-bold" href="index.html">
+                    <img src="Images/Logo.png" alt="KP Shoe Store Logo" width="70" height="70" class="d-inline-block align-text-middle rounded-circle">
+                    KP SHOE STORE
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" aria-current="page" href="index.html"><i class="bi bi-house-door" aria-hidden="true"></i> HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="about.html"><i class="bi bi-exclamation-diamond" aria-hidden="true"></i> ABOUT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-handbag" aria-hidden="true"></i> PRODUCTS</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="Athletic.html">Athletic Shoes</a></li>
+                                <li><a class="dropdown-item" href="formal.html">Formal Shoes</a></li>
+                                <li><a class="dropdown-item" href="boots.html">Boots</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="cart.html"><i class="bi bi-cart3" aria-hidden="true"></i> CART</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark fw-medium" href="contact.html"><i class="bi bi-telephone" aria-hidden="true"></i> CONTACT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i> LOGIN/REGISTER</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="register.html">Register</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-dark text-white" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Athletic Shoe Section -->
+      <section class="py-5" aria-labelledby="athletic-shoes-heading">
+        <header class="text-center mb-5">
+          <h1 id="athletic-shoes-heading" class="mt-5 mb-4">ATHLETIC SHOES</h1>
+          <p class="lead">Premium performance footwear for your active lifestyle</p>
+        </header>
+        
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card 1 -->
+            <article class="col">
+              <div class="card h-100 d-flex flex-column">
+                <img src="Images/a11.jpg" class="card-img-top product-image" alt="Soccer Shoe - High-performance footwear for soccer with enhanced grip and comfort">
+                <div class="card-body d-flex flex-column">
+                  <h2 class="card-title text-center h5">Soccer Shoe</h2>
+                  <p class="card-text flex-grow-1 text-center">Engineered for speed and comfort, this is the ultimate high-performance shoe for dominating the field.</p>
+                  <p class="text-center fw-bold fs-5">Php 2,000.00</p>
+                  <button type="button" class="btn mt-auto btn-custom order-now-btn" 
+                          data-product="Soccer Shoe" 
+                          data-price="2000.00" 
+                          data-image="Images/a11.jpg">
+                    <i class="bi bi-cart-plus me-2" aria-hidden="true"></i>Add to Cart
+                  </button>
+                </div>
+                <footer class="card-footer">
+                  <small class="text-body-secondary"><i class="bi bi-clock me-1" aria-hidden="true"></i>Last updated 1 min ago</small>
+                </footer>
+              </div>
+            </article>
+            
+            <!-- Card 2 -->
+            <article class="col">
+              <div class="card h-100 d-flex flex-column">
+                <img src="Images/01.webp" class="card-img-top product-image" alt="Badminton Shoe - Lightweight footwear designed for quick movements and court sports">
+                <div class="card-body d-flex flex-column">
+                  <h2 class="card-title text-center h5">Badminton Shoe</h2>
+                  <p class="card-text flex-grow-1 text-center">Designed for agility and quick movements, offering superior grip and cushioning for court sports.</p>
+                  <p class="text-center fw-bold fs-5">Php 1,500.00</p>
+                  <button type="button" class="btn mt-auto btn-custom order-now-btn" 
+                          data-product="Badminton Shoe" 
+                          data-price="1500.00" 
+                          data-image="Images/01.webp">
+                    <i class="bi bi-cart-plus me-2" aria-hidden="true"></i>Add to Cart
+                  </button>
+                </div>
+                <footer class="card-footer">
+                  <small class="text-body-secondary"><i class="bi bi-clock me-1" aria-hidden="true"></i>Last updated 1 min ago</small>
+                </footer>
+              </div>
+            </article>
+            
+            <!-- Card 3 -->
+            <article class="col">
+              <div class="card h-100 d-flex flex-column">
+                <img src="Images/a7.webp" class="card-img-top product-image" alt="Basketball Shoe - High-top performance footwear with ankle support for basketball">
+                <div class="card-body d-flex flex-column">
+                  <h2 class="card-title text-center h5">Basketball Shoe</h2>
+                  <p class="card-text flex-grow-1 text-center">High-top design with superior ankle support and cushioning for explosive movements on the court.</p>
+                  <p class="text-center fw-bold fs-5">Php 1,000.00</p>
+                  <button type="button" class="btn mt-auto btn-custom order-now-btn" 
+                          data-product="Basketball Shoe" 
+                          data-price="1000.00" 
+                          data-image="Images/a7.webp">
+                    <i class="bi bi-cart-plus me-2" aria-hidden="true"></i>Add to Cart
+                  </button>
+                </div>
+                <footer class="card-footer">
+                  <small class="text-body-secondary"><i class="bi bi-clock me-1" aria-hidden="true"></i>Last updated 1 min ago</small>
+                </footer>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add to Cart Modal -->
+      <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <header class="modal-header">
+              <h2 class="modal-title h5" id="addToCartModalLabel">
+                <i class="bi bi-check-circle-fill text-success me-2" aria-hidden="true"></i>
+                Item Added to Cart!
+              </h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </header>
+            <div class="modal-body">
+              <div class="d-flex align-items-center">
+                <img id="modalProductImage" src="" alt="" class="me-3 rounded" style="width: 80px; height: 80px; object-fit: contain;">
+                <div>
+                  <h3 id="modalProductName" class="h6 mb-1"></h3>
+                  <p class="mb-0 text-muted" id="modalProductPrice"></p>
+                  <small class="text-success"><i class="bi bi-check-lg me-1" aria-hidden="true"></i>Added to your cart successfully</small>
+                </div>
+              </div>
+            </div>
+            <footer class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+              <a href="cart.html" class="btn btn-custom">
+                <i class="bi bi-cart3 me-2" aria-hidden="true"></i>View Cart
+              </a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-dark" style="background-color: #1adfdf;">
+      <div class="container p-4">
+        <div class="row">
+          <!-- Company Info -->
+          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="index.html">KP Shoe Store</a>
+            </h2>
+            <p>
+              More than just a shoe store, KP Shoe Store is a part of the Bontoc community. We are your neighbors, here to help you find footwear that fits not just your feet, but your lifestyle.
+            </p>
+          </div>
+          
+          <!-- Products -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Products</h2>
+            <nav aria-label="Product categories">
+              <p><a class="text-dark text-decoration-underline" href="Athletic.html">Athletic Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="formal.html">Formal Shoes</a></p>
+              <p><a class="text-dark text-decoration-underline" href="boots.html">Boots</a></p>
+            </nav>
+          </div>
+          
+          <!-- Contact -->
+          <address class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">
+              <a class="text-dark text-decoration-none" href="contact.html">Contact Us</a>
+            </h2>
+            <p>
+              <a href="https://www.google.com/maps/place/Poblacion+(Bontoc),+Bontoc,+Mountain+Province/@17.089809,120.9703332,16z/data=!3m1!4b1!4m6!3m5!1s0x338fd21f09118ad5:0x7a9aef90d57be61f!8m2!3d17.0902441!4d120.977594!16s%2Fg%2F11f0wm1hkw?entry=ttu" target="_blank" class="text-dark text-decoration-none">
+                <i class="bi bi-geo-alt me-2" aria-hidden="true"></i> Bontoc, Mountain Province
+              </a>
+            </p>
+            <p>
+              <a href="mailto:infokpshoestore@gmail.com" class="text-dark text-decoration-none">
+                <i class="bi bi-envelope me-2" aria-hidden="true"></i> infokpshoestore@gmail.com
+              </a>
+            </p>
+            <p>
+              <a href="tel:+639569169498" class="text-dark text-decoration-underline d-inline d-md-none">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </a>
+              <span class="text-dark d-none d-md-inline">
+                <i class="bi bi-phone me-2" aria-hidden="true"></i>09569169498
+              </span>
+            </p>
+          </address>
+          
+          <!-- Social Media -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h2 class="text-uppercase mb-4 fw-bold h5">Follow us</h2>
+            <nav aria-label="Social media links">
+              <div class="d-flex justify-content-center justify-content-md-start">
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.facebook.com/" role="button" aria-label="Visit our Facebook page"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://twitter.com" role="button" aria-label="Visit our Twitter page"><i class="bi bi-twitter" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.google.com/" role="button" aria-label="Visit our Google Business page"><i class="bi bi-google" aria-hidden="true"></i></a>
+                <a class="btn btn-dark btn-floating m-1 text-white" href="https://www.instagram.com" role="button" aria-label="Visit our Instagram page"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright Section -->
+      <div class="text-center text-white p-3 bg-dark">
+        <small>&copy; 2023 Copyright: <a class="text-white text-decoration-none" href="index.html">KPShoeStore.com</a></small>
+      </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    
+    <script>
+      // Store current page as last visited product page
+      localStorage.setItem('lastProductPage', 'Athletic.html');
+
+      // Cart functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize cart if it doesn't exist
+        if (!localStorage.getItem('cart')) {
+          localStorage.setItem('cart', JSON.stringify([]));
+        }
+        
+        // Update cart count on page load
+        updateCartCount();
+        
+        // Order Now button functionality
+        document.querySelectorAll('.order-now-btn').forEach(button => {
+          button.addEventListener('click', function() {
+            const product = this.dataset.product;
+            const price = parseFloat(this.dataset.price);
+            const image = this.dataset.image;
+            
+            addToCart(product, price, image);
+            
+            // Show modal
+            document.getElementById('modalProductName').textContent = product;
+            document.getElementById('modalProductPrice').textContent = `Php ${price.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+            document.getElementById('modalProductImage').src = image;
+            document.getElementById('modalProductImage').alt = product;
+            
+            const modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+            modal.show();
+          });
+        });
+        
+        // Add item to cart
+        function addToCart(product, price, image) {
+          const cart = JSON.parse(localStorage.getItem('cart'));
+          
+          // Check if product already exists in cart
+          const existingItemIndex = cart.findIndex(item => item.product === product);
+          
+          if (existingItemIndex !== -1) {
+            // If product exists, increase quantity
+            cart[existingItemIndex].quantity += 1;
+          } else {
+            // If product doesn't exist, add new item
+            cart.push({
+              product: product,
+              price: price,
+              image: image,
+              quantity: 1
+            });
+          }
+          
+          // Save updated cart to localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+          
+          // Update cart count
+          updateCartCount();
+          
+          // Add animation to cart icon
+          animateCartIcon();
+        }
+        
+        // Update cart count in navbar
+        function updateCartCount() {
+          const cart = JSON.parse(localStorage.getItem('cart'));
+          const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+          
+          const cartCount = document.getElementById('cartCount');
+          if (totalItems > 0) {
+            cartCount.textContent = totalItems;
+            cartCount.classList.remove('d-none');
+          } else {
+            cartCount.classList.add('d-none');
+          }
+        }
+        
+        // Animate cart icon when item is added
+        function animateCartIcon() {
+          const cartIcon = document.querySelector('.cart-link');
+          cartIcon.style.transform = 'scale(1.2)';
+          setTimeout(() => {
+            cartIcon.style.transform = 'scale(1)';
+          }, 300);
+        }
+        
+        // Add quick view functionality
+        document.querySelectorAll('.card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

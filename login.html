@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KP Shoe Store - Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --aqua: #1db8b8;
+            --aqua-dark: #159797;
+            --black: #000000;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') 
+                        no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--black);
+        }
+        
+        .login-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .brand-section {
+            color: white;
+            padding: 2rem;
+        }
+        
+        .brand-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--aqua);
+            margin-bottom: 1rem;
+        }
+        
+        .brand-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-gray);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: var(--light-gray);
+        }
+        
+        .feature-list i {
+            color: var(--aqua);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .login-card {
+            border-radius: 15px;
+            border: none;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            border-radius: 15px 15px 0 0 !important;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: white;
+            padding: 2rem 2rem 1rem;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 0.25rem rgba(29, 184, 184, 0.15);
+            background-color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--aqua);
+            border-color: var(--aqua);
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--aqua-dark);
+            border-color: var(--aqua-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(29, 184, 184, 0.3);
+        }
+        
+        .btn-outline-dark {
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 500;
+            border-color: var(--dark-gray);
+            color: var(--dark-gray);
+        }
+        
+        .btn-outline-dark:hover {
+            background-color: var(--dark-gray);
+            border-color: var(--dark-gray);
+            color: white;
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--aqua);
+            border-color: var(--aqua);
+        }
+        
+        .divider {
+            color: var(--dark-gray);
+        }
+        
+        .forgot-password {
+            color: var(--aqua);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .forgot-password:hover {
+            color: var(--aqua-dark);
+        }
+        
+        .modal-header {
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .modal-footer {
+            border-top: 1px solid var(--medium-gray);
+            background-color: var(--light-gray);
+        }
+        
+        .terms-content h6 {
+            color: var(--black);
+            font-weight: 600;
+        }
+        
+        .terms-content p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .toast {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-shoes {
+            margin-top: 2rem;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .shoe-sample {
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, var(--aqua), var(--aqua-dark));
+            opacity: 0.8;
+        }
+        
+        .shoe-sample:nth-child(2) {
+            background: linear-gradient(45deg, var(--black), #333);
+        }
+        
+        .shoe-sample:nth-child(3) {
+            background: linear-gradient(45deg, var(--dark-gray), #adb5bd);
+        }
+        
+        @media (max-width: 768px) {
+            .brand-section {
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .feature-list {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container login-container">
+        <div class="row align-items-center">
+            <!-- Brand Section -->
+            <section class="col-lg-6 mb-5 mb-lg-0">
+                <div class="brand-section">
+                    <header>
+                        <div class="brand-logo">KP SHOE STORE</div>
+                        <p class="brand-tagline">Step into style with our premium collection of footwear</p>
+                    </header>
+                    
+                    <section class="features-section">
+                        <ul class="feature-list">
+                            <li><i class="bi bi-check-circle"></i> Premium quality materials</li>
+                            <li><i class="bi bi-check-circle"></i> Free shipping on orders over Php 2,000</li>
+                            <li><i class="bi bi-check-circle"></i> 30-day return policy</li>
+                            <li><i class="bi bi-check-circle"></i> Exclusive member discounts</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="product-showcase">
+                        <div class="featured-shoes">
+                            <div class="shoe-sample"></div>
+                            <div class="shoe-sample"></div>
+                            <div class="shoe-sample"></div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            
+            <!-- Login Form Section -->
+            <section class="col-lg-6">
+                <div class="card login-card">
+                    <header class="card-header text-center">
+                        <h2 class="mb-2 fw-bold">Welcome Back</h2>
+                        <p class="text-muted mb-0">Sign in to your account</p>
+                    </header>
+                    
+                    <section class="card-body p-4">
+                        <form id="loginForm" novalidate>
+                            <!-- Email Section -->
+                            <section class="mb-3">
+                                <label for="inputEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid email address.
+                                </div>
+                            </section>
+
+                            <!-- Password Section -->
+                            <section class="mb-3">
+                                <label for="inputPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" required>
+                                <div class="invalid-feedback">
+                                    Please enter your password.
+                                </div>
+                            </section>
+
+                            <!-- Preferences Section -->
+                            <section class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                                    Forgot password?
+                                </a>
+                            </section>
+
+                            <section class="form-action">
+                                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold mb-3">
+                                    Sign In
+                                </button>
+                            </section>
+
+                            <!-- Divider Section -->
+                            <section class="divider-section">
+                                <div class="divider d-flex align-items-center my-4">
+                                    <div class="flex-grow-1 border-top"></div>
+                                    <div class="px-3 text-muted">or continue with</div>
+                                    <div class="flex-grow-1 border-top"></div>
+                                </div>
+                            </section>
+
+                            <!-- Social Login Section -->
+                            <section class="social-login">
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-outline-dark w-100 py-2 mb-3" id="googleSignIn">
+                                        <i class="bi bi-google me-2"></i>Sign in with Google
+                                    </button>
+                                </div>
+                            </section>
+
+                            <!-- Registration Section -->
+                            <section class="registration-link">
+                                <div class="text-center mt-4">
+                                    <p class="mb-0">Don't have an account? 
+                                        <a href="register.html" class="text-decoration-none fw-bold" style="color: var(--aqua);">Create account</a>
+                                    </p>
+                                </div>
+                            </section>
+                        </form>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <section class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">
+                        <i class="bi bi-key me-2"></i>Reset Your Password
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </header>
+                <section class="modal-body">
+                    <p>Enter your email address and we'll send you a link to reset your password.</p>
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="forgotEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="forgotEmail" placeholder="Enter your email" required>
+                        </div>
+                    </form>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="sendResetLink">Send Reset Link</button>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Toast -->
+    <section class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <header class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </header>
+            <section class="toast-body">
+                You have successfully logged in!
+            </section>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('loginForm');
+            const successToast = new bootstrap.Toast(document.getElementById('successToast'));
+            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+            const sendResetLinkBtn = document.getElementById('sendResetLink');
+            
+            // Form submission
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                // Check form validity
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                
+                // If form is valid, simulate successful login
+                // In a real application, you would send the data to your server here
+                
+                // Show success message
+                successToast.show();
+                
+                // Redirect to dashboard/home page after a delay
+                setTimeout(function() {
+                    window.location.href = 'index.html'; // Change to your actual dashboard URL
+                }, 2000);
+            });
+            
+            // Google Sign In button
+            document.getElementById('googleSignIn').addEventListener('click', function() {
+                // In a real application, you would implement Google OAuth here
+                alert('Google Sign In functionality would be implemented here');
+            });
+            
+            // Forgot password functionality
+            sendResetLinkBtn.addEventListener('click', function() {
+                const emailInput = document.getElementById('forgotEmail');
+                
+                if (emailInput.checkValidity()) {
+                    // In a real application, you would send a password reset email here
+                    alert('Password reset link would be sent to: ' + emailInput.value);
+                    
+                    // Close the modal
+                    const modal = bootstrap.Modal.getInstance(forgotPasswordModal);
+                    modal.hide();
+                    
+                    // Reset the form
+                    document.getElementById('forgotPasswordForm').reset();
+                } else {
+                    emailInput.classList.add('is-invalid');
+                }
+            });
+            
+            // Reset validation on modal close
+            forgotPasswordModal.addEventListener('hidden.bs.modal', function() {
+                const emailInput = document.getElementById('forgotEmail');
+                emailInput.classList.remove('is-invalid');
+            });
+        });
+    </script>
+</body>
+</html>
